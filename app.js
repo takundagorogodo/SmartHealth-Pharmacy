@@ -1,14 +1,22 @@
 import express from "express"
-import { config } from "dotenv";
-import  { connectDb }  from "./config/db.js"
+import dotenv from "dotenv";
+import  connectDb   from "./config/db.js";
+import cookieParser from "cookie-parser";
+import { notFound, globalErrorHandler } from "./middleware/errorMiddleware.js";
+import mainRoute from "./routes/mainRoute.js";
 
-config();
-connectDb;
+dotenv.config();
+connectDb();
 
 const app = express();
 
-app.use(express.json);
-app.use(express.urlencoded.json);
-app.use();
+app.use(express.json());
+app.use(cookieParser());
+app.use(express.urlencoded({ extended : true}));
 
-export default app
+app.use("/auth/api",mainRoute);
+
+app.use(notFound);
+app.use(globalErrorHandler);
+
+export default app;
