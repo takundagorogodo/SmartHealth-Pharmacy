@@ -198,7 +198,7 @@ frontend/
 ### 🔧 Backend Setup
 
 ```bash
-git clone https://github.com/yourusername/smartpharmacy.git
+git clone https://github.com/takundagorogodo/smartpharmacy.git
 cd smartpharmacy/backend
 
 npm install
