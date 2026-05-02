@@ -163,11 +163,24 @@ export const addMedicalCondition = async (req, res) => {
   }
 };
 
-
 export const resolveCondition = async (req, res) => {
+  
   try {
+
     const patientId = req.user._id;
     const { conditionId } = req.params;
+
+    const existing = await HealthRecord.findOne({ patient: patientId });
+    if (!existing) {
+      return res.status(404).json({ message: "Health record not found. Please create one first." });
+    }
+
+    const conditionExists = existing.medicalHistory.find(
+      (m) => m._id.toString() === conditionId
+    );
+    if (!conditionExists) {
+      return res.status(404).json({ message: "Condition not found in your health record." });
+    }
 
     const record = await HealthRecord.findOneAndUpdate(
       { patient: patientId, "medicalHistory._id": conditionId },
