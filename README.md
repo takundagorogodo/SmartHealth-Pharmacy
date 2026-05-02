@@ -338,7 +338,7 @@ This project demonstrates:
 
 ## 👨‍💻 Author
 
-**Prosperity Chinokwetu**
+**GOROGODO TAKUNDA LEONARD**
 
 Full-Stack Developer | Computer Science Student
 
@@ -362,7 +362,7 @@ If you found this project useful or impressive:
 ## 📬 Contact
 
 * GitHub Issues (preferred)
-* Email: [your@email.com](mailto:your@email.com)
+* Email: [gorogodotakundah26@egmail.com](mailto:gorogodotakundah26@gmail.com)
 
 ---
 
